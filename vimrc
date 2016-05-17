@@ -4,6 +4,9 @@ highlight! link DiffText Todo
 
 :set cursorline
 
+:set wildignore+=*.meta
+let g:ctrlp_root_markers = ['scripts_root']
+
 """set ruler
 set backspace=2
 set hidden
