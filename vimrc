@@ -1,3 +1,5 @@
+let mapleader = ","
+
 syntax on
 
 highlight! link DiffText Todo
@@ -32,7 +34,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -78,7 +80,7 @@ filetype plugin on
 let g:OmniSharp_host = "http://localhost:2000"
 
 "Set the type lookup function to use the preview window instead of the status line
-"let g:OmniSharp_typeLookupInPreview = 1
+let g:OmniSharp_typeLookupInPreview = 1
 
 "Timeout in seconds to wait for a response from the server
 let g:OmniSharp_timeout = 1
@@ -88,10 +90,10 @@ let g:OmniSharp_timeout = 1
 set noshowmatch
 
 "Super tab settings - uncomment the next 4 lines
-"let g:SuperTabDefaultCompletionType = 'context'
-"let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
-"let g:SuperTabDefaultCompletionTypeDiscovery = ["&omnifunc:<c-x><c-o>","&completefunc:<c-x><c-n>"]
-"let g:SuperTabClosePreviewOnPopupClose = 1
+let g:SuperTabDefaultCompletionType = 'context'
+let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
+let g:SuperTabDefaultCompletionTypeDiscovery = ["&omnifunc:<c-x><c-o>","&completefunc:<c-x><c-n>"]
+let g:SuperTabClosePreviewOnPopupClose = 1
 
 "don't autoselect first item in omnicomplete, show if only one item (for preview)
 "remove preview if you don't want to see any documentation whatsoever.
@@ -182,4 +184,5 @@ nnoremap <leader>th :OmniSharpHighlightTypes<cr>
 "Don't ask to save when changing buffers (i.e. when jumping to a type definition)
 set hidden
 
+:map <C-i> :OmniSharpCodeFormat<CR> 
 
