@@ -186,3 +186,7 @@ set hidden
 
 :map <C-i> :OmniSharpCodeFormat<CR> 
 
+:nnoremap <C-a> "zyiw :!open 'http://docs.unity3d.com/ScriptReference/30_search.html?q=<C-r>z'<CR><CR>
+:inoremap <C-a> "zyiw :!open 'http://docs.unity3d.com/ScriptReference/30_search.html?q=<C-r>z'<CR><CR>
+
+
