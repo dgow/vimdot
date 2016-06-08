@@ -39,6 +39,9 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'ervandew/supertab'
+Plugin 'majutsushi/tagbar'
+Plugin 'altercation/vim-colors-solarized'
 "Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()            " required
@@ -74,7 +77,7 @@ let g:airline_theme="molokai"
 """END AIRLine
 
 
-set guifont=Meslo\ LG\ S\ DZ\ Regular\ for\ Powerline:h11
+set guifont=Meslo\ LG\ S\ DZ\ Regular\ for\ Powerline:h12
 
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeIgnore = ['\.meta']
@@ -99,23 +102,24 @@ let g:OmniSharp_timeout = 1
 "set noshowmatch
 
 "Super tab settings - uncomment the next 4 lines
-"let g:SuperTabDefaultCompletionType = 'context'
+let g:SuperTabDefaultCompletionType = 'context'
 let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
 "let g:SuperTabDefaultCompletionTypeDiscovery = ["&omnifunc:<c-x><c-o>","&completefunc:<c-x><c-n>"]
 "let g:SuperTabClosePreviewOnPopupClose = 1
 
 "don't autoselect first item in omnicomplete, show if only one item (for preview)
 "remove preview if you don't want to see any documentation whatsoever.
-set completeopt=longest,menuone,preview
+set completeopt=menu,noinsert
+"set completeopt=longest,menuone,preview
 " Fetch full documentation during omnicomplete requests.
 " There is a performance penalty with this (especially on Mono)
 " By default, only Type/Method signatures are fetched. Full documentation can still be fetched when
 " you need it with the :OmniSharpDocumentation command.
-" let g:omnicomplete_fetch_documentation=1
+"let g:omnicomplete_fetch_documentation=1
 
 "Move the preview window (code documentation) to the bottom of the screen, so it doesn't move the code!
 "You might also want to look at the echodoc plugin
-set splitbelow
+"set splitbelow
 
 " Get Code Issues and syntax errors
 let g:syntastic_cs_checkers = ['syntax', 'semantic', 'issues']
@@ -126,6 +130,8 @@ augroup omnisharp_commands
 
     "Set autocomplete function to OmniSharp (if not using YouCompleteMe completion plugin)
     autocmd FileType cs setlocal omnifunc=OmniSharp#Complete
+
+	autocmd FileType cs :TagbarOpen
 
     " Synchronous build (blocks Vim)
     "autocmd FileType cs nnoremap <F5> :wa!<cr>:OmniSharpBuild<cr>
@@ -193,9 +199,18 @@ nnoremap <leader>th :OmniSharpHighlightTypes<cr>
 "Don't ask to save when changing buffers (i.e. when jumping to a type definition)
 set hidden
 
+"my stuff
 :map <leader><C-i> :OmniSharpCodeFormat<CR> 
-
 :nnoremap <leader><C-d> "zyiw :!open 'http://docs.unity3d.com/ScriptReference/30_search.html?q=<C-r>z'<CR><CR>
 :inoremap <leader><C-d> <esc>"zyiw :!open 'http://docs.unity3d.com/ScriptReference/30_search.html?q=<C-r>z'<CR><CR>i
 
+
+"solar
+let g:solarized_termtrans=1
+let g:solarized_termcolors=256
+let g:solarized_contrast="high"
+let g:solarized_visibility="high"
+colorscheme solarized
+set background=light
+:highlight TagbarSignature guifg=Black ctermfg=Black
 
