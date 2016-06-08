@@ -2,9 +2,14 @@ let mapleader = ","
 
 syntax on
 
+set nu
+
 highlight! link DiffText Todo
 
-:set cursorline
+
+if has("gui_running")
+	:set cursorline
+endif
 
 :set wildignore+=*.meta
 let g:ctrlp_root_markers = ['scripts_root']
@@ -91,11 +96,11 @@ let g:OmniSharp_timeout = 1
 
 "Showmatch significantly slows down omnicomplete
 "when the first match contains parentheses.
-set noshowmatch
+"set noshowmatch
 
 "Super tab settings - uncomment the next 4 lines
 "let g:SuperTabDefaultCompletionType = 'context'
-"let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
+let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
 "let g:SuperTabDefaultCompletionTypeDiscovery = ["&omnifunc:<c-x><c-o>","&completefunc:<c-x><c-n>"]
 "let g:SuperTabClosePreviewOnPopupClose = 1
 
@@ -188,9 +193,9 @@ nnoremap <leader>th :OmniSharpHighlightTypes<cr>
 "Don't ask to save when changing buffers (i.e. when jumping to a type definition)
 set hidden
 
-:map <C-i> :OmniSharpCodeFormat<CR> 
+:map <leader><C-i> :OmniSharpCodeFormat<CR> 
 
-:nnoremap <C-d> "zyiw :!open 'http://docs.unity3d.com/ScriptReference/30_search.html?q=<C-r>z'<CR><CR>
-:inoremap <C-d> <esc>"zyiw :!open 'http://docs.unity3d.com/ScriptReference/30_search.html?q=<C-r>z'<CR><CR>i
+:nnoremap <leader><C-d> "zyiw :!open 'http://docs.unity3d.com/ScriptReference/30_search.html?q=<C-r>z'<CR><CR>
+:inoremap <leader><C-d> <esc>"zyiw :!open 'http://docs.unity3d.com/ScriptReference/30_search.html?q=<C-r>z'<CR><CR>i
 
 
