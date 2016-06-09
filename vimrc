@@ -99,7 +99,7 @@ let g:OmniSharp_timeout = 1
 
 "Showmatch significantly slows down omnicomplete
 "when the first match contains parentheses.
-"set noshowmatch
+set noshowmatch
 
 "Super tab settings - uncomment the next 4 lines
 let g:SuperTabDefaultCompletionType = 'context'
