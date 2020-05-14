@@ -1,7 +1,5 @@
 # vimdot
 
-# bla
-
 ```mermaid
 classDiagram
     class BankAccount
